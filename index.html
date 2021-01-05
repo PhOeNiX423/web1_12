@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web1_12</title>
+    <link rel='stylesheet' href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id='form'>
+        <h1 id='header'>STUDENT'S LIST</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sunt ab asperiores iste vero ipsum omnis necessitatibus, id neque quae nam, consequatur perferendis! Quidem laboriosam quod facere cum consequuntur animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque vitae inventore eligendi ea adipisci, sit blanditiis ipsa, rerum officia quod, cupiditate quidem cum! Reprehenderit quo sunt dolorem molestiae, quidem cumque.</p>
+        <form style="padding-top: 10%;">
+            <h3>FORM</h3>
+            
+            <label for='login'>Lastname:</label>
+            <input 
+            v-model.trim="login" 
+            placeholder='Lastname'
+            >
+            
+            <h6>Firstname:</h6>
+            <input v-model='massage' type='text' name="Firstname" placeholder="Firstname">
+            <input type='submit' name='sub' value='Add'>
+            <h6>Number of symbols:</h6>
+        </form>
+    </div>
+</body>
+
+</html>
