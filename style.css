@@ -1,7 +1,7 @@
 * {
     margin: 0; 
     padding: 0;
-    font-family: sans-serif
+    font-family: sans-serif;
 }
 
 body {
@@ -11,13 +11,52 @@ body {
 
 #header {
     padding-top: 6%;
-    padding-bottom: 4%;
+    padding-bottom: 2%;
     color: #323232;
+    font-weight: 900
+}
+
+input {
+    padding-left: 10px; 
+    font-weight: 600;
+}
+
+button {
+    padding: 10px;
+    width: 300px;
 }
 
 #form {
-    width: 40%;
+    width: 500px;
+    height: 650px;
     background: #FFFFFF;
     text-align: center;
-    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -325px 0 0 -250px;
 }
+
+#forma {
+    margin: auto;
+    width: 300px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn:enabled {
+    background-color: #D33F8D;
+    color: white;
+    border: none;
+}
+
+.btn:disabled {
+    cursor: default;
+    background: white;
+}
+
+.btn:focus {
+    outline: none;
+  }

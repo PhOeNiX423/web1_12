@@ -4,28 +4,114 @@
 <head>
     <meta charset="UTF-8">
     <title>Web1_12</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 
 <body>
     <div id='form'>
         <h1 id='header'>STUDENT'S LIST</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sunt ab asperiores iste vero ipsum omnis necessitatibus, id neque quae nam, consequatur perferendis! Quidem laboriosam quod facere cum consequuntur animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque vitae inventore eligendi ea adipisci, sit blanditiis ipsa, rerum officia quod, cupiditate quidem cum! Reprehenderit quo sunt dolorem molestiae, quidem cumque.</p>
-        <form style="padding-top: 10%;">
-            <h3>FORM</h3>
-            
-            <label for='login'>Lastname:</label>
-            <input 
-            v-model.trim="login" 
-            placeholder='Lastname'
-            >
-            
-            <h6>Firstname:</h6>
-            <input v-model='massage' type='text' name="Firstname" placeholder="Firstname">
-            <input type='submit' name='sub' value='Add'>
-            <h6>Number of symbols:</h6>
-        </form>
+        <!--
+        <div>
+            <p style='padding: 15px;'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sunt ab asperiores iste vero ipsum omnis necessitatibus, id neque quae nam, consequatur perferendis! Quidem laboriosam quod facere cum consequuntur animi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque vitae inventore eligendi ea adipisci, sit blanditiis ipsa, rerum officia quod, cupiditate quidem cum! Reprehenderit quo sunt dolorem molestiae, quidem cumque.</p>
+        </div>
+-->
+        <div id="forma">
+            <div>
+                <h4 style="text-align: start; margin-bottom: 5px; margin-top: 20px;">Last name:</h4>
+                <input style='display: block; margin: auto 0; width: 300px; height: 30px; background-color: #E6E6E6; border: none; outline:none;' placeholder="Lastname" type="text" v-model="LN" id='LaNa' />
+            </div>
+            <div>
+                <h4 style="text-align: start; margin-top: 20px; margin-bottom: 5px;">First name:</h4>
+                <input style='display: block; margin: auto 0; width: 300px; height: 30px; background-color: #E6E6E6; border: none; outline:none;' placeholder="Firstname" type="text" v-model="FN" id='FiNa'>
+            </div>
+            <div style="font-family: sans-serif; text-align: center; margin-top: 10px; margin-bottom: 10px;">
+                <h5 style="font-weight: 600;">Symbols: {{length}}</h5>
+            </div>
+
+            <button class="btn" v-on:click.prevent="addItem" v-bind:disabled="Button" v-bind:enabled="Button">Add</button>
+            <h1 style="font-weight: 800; font-size: 22px; margin-top: 4%;">{{header}}</h1>
+            <div style="font-size: 12px;" v-if='items.length==0'>The list is empty</div>
+            <div style="margin-top: 10px; font-size: 12px;" v-else>
+                <ol style='text-align: start; display: inline-block'>
+                    <li v-for='item in items'>
+                        {{item}}
+                    </li>
+                </ol>
+                <button style='margin-top: 15px;' id='btn' v-on:click='clear'>Clear list</button>
+            </div>
+        </div>
+        <div style='position: absolute; bottom: 0px; width: 500px; text-align: center;'>
+            <p style='font-size: 15px; color: darkgrey; margin-bottom: 3px;'>Developed by D.Natalina, 2021</p>
+        </div>
+
+        <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+        <script>
+            new Vue({
+                el: '#form',
+                data: {
+                    LN: '',
+                    FN: '',
+                    header: 'List',
+                    items: [],
+                    Button: true,
+                },
+                computed: {
+                    length: function() {
+                        return this.LN.length + this.FN.length;
+                    }
+                },
+
+                methods: {
+                    addItem: function() {
+                        if (this.LN !== '' && this.FN !== '') {
+                            const item = {};
+                            item.one = this.LN;
+                            item.two = this.FN;
+
+                            i1 = this.LN[0];
+                            i2 = this.FN[0];
+
+                            this.LN = this.LN.toLowerCase().slice(1);
+                            this.FN = this.FN.toLowerCase().slice(1);
+
+                            this.LN = i1.toUpperCase() + this.LN;
+                            this.FN = i2.toUpperCase() + this.FN;
+
+
+
+                            this.items.push(`${this.LN} ${this.FN} `);
+                            this.LN = '';
+                            this.FN = '';
+                        }
+                    },
+                    clear: function() {
+                        this.items = []
+                    },
+
+                },
+                watch: {
+
+                    LN(value) {
+                        if (value.length > 0 && this.FN.length > 0) {
+                            this.Button = false;
+                        } else {
+                            this.Button = true;
+                        }
+                    },
+
+                    FN(value) {
+                        if (value.length > 0 && this.LN.length > 0) {
+                            this.Button = false;
+                        } else {
+                            this.Button = true;
+                        }
+                    },
+                },
+
+            });
+
+        </script>
     </div>
 </body>
 
