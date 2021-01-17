@@ -18,20 +18,20 @@
 -->
         <div id="forma">
             <div>
-                <h4 style="text-align: start; margin-bottom: 5px; margin-top: 20px;">Last name:</h4>
+                <h4 style="text-align: start; margin-bottom: 5px; margin-top: 20px; font-weight: 500;">Last name:</h4>
                 <input style='display: block; margin: auto 0; width: 300px; height: 30px; background-color: #E6E6E6; border: none; outline:none;' placeholder="Lastname" type="text" v-model="LN" id='LaNa' />
             </div>
             <div>
-                <h4 style="text-align: start; margin-top: 20px; margin-bottom: 5px;">First name:</h4>
+                <h4 style="text-align: start; margin-top: 20px; margin-bottom: 5px; font-weight: 500;">First name:</h4>
                 <input style='display: block; margin: auto 0; width: 300px; height: 30px; background-color: #E6E6E6; border: none; outline:none;' placeholder="Firstname" type="text" v-model="FN" id='FiNa'>
             </div>
             <div style="font-family: sans-serif; text-align: center; margin-top: 10px; margin-bottom: 10px;">
-                <h5 style="font-weight: 600;">Symbols: {{length}}</h5>
+                <h5 style="font-weight: 600; color:#969696;">Symbols: {{length}}</h5>
             </div>
 
             <button class="btn" v-on:click.prevent="addItem" v-bind:disabled="Button" v-bind:enabled="Button">Add</button>
-            <h1 style="font-weight: 800; font-size: 22px; margin-top: 4%;">{{header}}</h1>
-            <div style="font-size: 12px;" v-if='items.length==0'>The list is empty</div>
+            <h1 style="font-weight: 800; font-size: 22px; margin-top: 5%;">{{header}}</h1>
+            <div style="font-size: 12px;" v-if='items.length==0'>-*The list is empty*-</div>
             <div style="margin-top: 10px; font-size: 12px;" v-else>
                 <ol style='text-align: start; display: inline-block'>
                     <li v-for='item in items'>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div style='position: absolute; bottom: 0px; width: 400px; text-align: center;'>
-            <p style='font-size: 15px; color: darkgrey; margin-bottom: 3px;'>Developed by D.Natalina, 2021</p>
+            <p style='font-size: 15px; color: darkgrey; margin-bottom: 20px;'>Developed by D.Natalina, 2021</p>
         </div>
 
         <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
